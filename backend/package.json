@@ -2,6 +2,9 @@
   "name": "backend",
   "type": "module",
   "version": "1.0.0",
+  "engines": {
+    "node": "16"
+  },
   "main": "server.js",
   "license": "MIT",
   "scripts": {
@@ -9,6 +12,7 @@
   },
   "dependencies": {
     "express": "^4.17.2",
+    "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "uuidv4": "^6.2.12"
   },
