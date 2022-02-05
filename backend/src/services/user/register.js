@@ -1,5 +1,9 @@
-class UserRegisterService {
-  async execute(name, email, password) {}
+export class UserRegisterService {
+  #userRepository;
+  constructor(userRepository) {
+    this.#userRepository = userRepository;
+  }
+  async execute({ name, email, password }) {
+    return this.#userRepository.save({ name, email, password });
+  }
 }
-
-export default UserRegisterService;
