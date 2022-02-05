@@ -1,14 +1,14 @@
 import { Project } from "../../models/index.js";
 export class ProjectRepository {
-  #projects;
-  constructor() {
-    this.#projects = [];
-  }
+  #projects = [];
   async save({ name, user_id }) {
     this.#projects.push(new Project({ name, user_id }));
   }
   async findById(id) {
     return this.#projects.find((project) => project.id === id);
+  }
+  async findAll() {
+    return this.#projects;
   }
   async delete(id) {
     this.#projects.filter((project) => project.id !== id);

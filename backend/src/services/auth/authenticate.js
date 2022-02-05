@@ -24,6 +24,7 @@ export class AuthenticateService {
     return {
       autenticated: true,
       user: {
+        id: user.id,
         name: user.name,
       },
       token: jwt.sign({ id: user.id }, authConfig.secret, {

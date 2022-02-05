@@ -8,4 +8,13 @@ export class Project {
     this.#name = name;
     this.#user_id = user_id;
   }
+  get id() {
+    return this.#id;
+  }
+  get user_id() {
+    return this.#user_id;
+  }
+  get name() {
+    return this.#name;
+  }
 }
