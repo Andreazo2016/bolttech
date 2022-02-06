@@ -27,4 +27,7 @@ export class TaskRepository {
   async findAllTasksByProjectID(projectId) {
     return this.#tasks.filter((task) => task.project_id === projectId);
   }
+  async removeAllTaskByProjectID(projectId) {
+    this.#tasks = this.#tasks.filter((task) => task.project_id !== projectId);
+  }
 }

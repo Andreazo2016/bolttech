@@ -12,14 +12,15 @@ export class ProjectRepository {
     return this.#projects;
   }
   async delete(id) {
-    this.#projects.filter((project) => project.id !== id);
+    this.#projects = this.#projects.filter((project) => project.id !== id);
   }
   async update(id, params) {
     const project = await this.findById(id);
     if (project) {
       await this.delete(id);
-      const newProject = { ...project, ...params };
+      const newProject = { id: project.id, ...params };
       this.#projects.push(newProject);
+      return this.findById(id);
     }
   }
 

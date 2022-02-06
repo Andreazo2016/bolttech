@@ -1,16 +1,16 @@
-import { FindProjectService } from "../../services/project/index.js";
+import { DeleteProjectService } from "../../services/project/index.js";
 import { ProjectRepositoryFactory } from "../../infra/factories/project-factory-repositories.js";
 import { TaskRepositoryFactory } from "../../infra/factories/task-factory-repositories.js";
-class ListAllProjectController {
+class DeleteProjectController {
   async execute(request, response) {
     const { project_id } = request.params;
     try {
-      const findProjectService = new FindProjectService(
+      const deleteProjectService = new DeleteProjectService(
         ProjectRepositoryFactory.getInstance(),
         TaskRepositoryFactory.getInstance()
       );
-      const project = await findProjectService.execute(project_id);
-      return response.json(project);
+      await deleteProjectService.execute(project_id);
+      return response.status(200).send();
     } catch (error) {
       console.log(error);
       return response.status(500).send("Internal Server Error");
@@ -18,4 +18,4 @@ class ListAllProjectController {
   }
 }
 
-export default new ListAllProjectController();
+export default new DeleteProjectController();
