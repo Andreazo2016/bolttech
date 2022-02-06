@@ -6,6 +6,6 @@ export class CreateProjectService {
     this.#projectRepository = projectRepository;
   }
   async execute({ name, user_id }) {
-    return this.#projectRepository.save(new Project({ name, user_id }));
+    return this.#projectRepository.save({ name, user_id });
   }
 }

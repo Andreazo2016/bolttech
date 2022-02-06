@@ -2,7 +2,8 @@ import { Project } from "../../models/index.js";
 export class ProjectRepository {
   #projects = [];
   async save({ name, user_id }) {
-    this.#projects.push(new Project({ name, user_id }));
+    const project = new Project({ name, user_id });
+    this.#projects.push(project);
   }
   async findById(id) {
     return this.#projects.find((project) => project.id === id);

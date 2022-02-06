@@ -2,12 +2,12 @@ import { ListAllProjectService } from "../../services/project/index.js";
 import { ProjectRepositoryFactory } from "../../infra/factories/project-factory-repositories.js";
 class FindProjectController {
   async execute(request, response) {
-    const { user_id } = request.params;
+    const { id } = request.user;
     try {
       const listAllProjectService = new ListAllProjectService(
         ProjectRepositoryFactory.getInstance()
       );
-      const projects = await listAllProjectService.execute(user_id);
+      const projects = await listAllProjectService.execute(id);
       return response.json(projects);
     } catch (error) {
       console.log(error);

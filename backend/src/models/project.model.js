@@ -7,6 +7,7 @@ export class Project {
     this.#id = uuid();
     this.#name = name;
     this.#user_id = user_id;
+    this.toJSON = () => ({ id: this.#id, name: this.#name });
   }
   get id() {
     return this.#id;
@@ -16,5 +17,14 @@ export class Project {
   }
   get name() {
     return this.#name;
+  }
+  set id(id) {
+    this.#id = id;
+  }
+  set user_id(user_id) {
+    this.#user_id = user_id;
+  }
+  set name(name) {
+    this.#name = name;
   }
 }

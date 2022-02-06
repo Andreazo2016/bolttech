@@ -7,8 +7,8 @@ const routers = Router();
 routers.get("/", async (req, res) => {
   return res.json({ alive: true });
 });
-routers.use("/user", userRoutes);
+routers.use("/users", userRoutes);
 routers.use("/login", authRoutes);
-routers.use("/project", projectRoutes);
+routers.use("/projects", projectRoutes);
 
 export default routers;

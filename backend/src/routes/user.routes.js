@@ -4,7 +4,7 @@ import userRegisterParamsValidator from "../validators/user-register-validator.j
 
 const userRoutes = Router();
 userRoutes.post(
-  "/register",
+  "/",
   userRegisterParamsValidator,
   registerUserController.execute
 );

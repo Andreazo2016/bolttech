@@ -1,3 +1,5 @@
+import { Project } from "../../models/project.model.js";
+
 export class ListAllProjectService {
   #projectRepository;
   constructor(projectRepository) {
@@ -7,7 +9,6 @@ export class ListAllProjectService {
     const projects = await this.#projectRepository.findAllProjectByUserID(
       userId
     );
-    console.log(projects[0].name);
     return projects;
   }
 }
