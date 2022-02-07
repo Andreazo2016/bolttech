@@ -6,9 +6,15 @@ import deleteTaskController from "../controllers/task/delete.js";
 import updateTaskController from "../controllers/task/update.js";
 import listTaskController from "../controllers/task/list.js";
 import jwtAuthentication from "../middlewares/jwt-authentication.js";
+import createTaskValidator from "../validators/create-task-validator.js";
 
 const taskRoutes = Router();
-taskRoutes.post("/", jwtAuthentication, createTaskController.execute);
+taskRoutes.post(
+  "/",
+  jwtAuthentication,
+  createTaskValidator,
+  createTaskController.execute
+);
 taskRoutes.post("/finish", jwtAuthentication, finishTaskController.execute);
 taskRoutes.put("/:task_id", jwtAuthentication, updateTaskController.execute);
 taskRoutes.get("/:task_id", findTaskController.execute);

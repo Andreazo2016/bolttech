@@ -5,9 +5,15 @@ import findProjectController from "../controllers/project/find.js";
 import deleteProjectController from "../controllers/project/delete.js";
 import updateProjectController from "../controllers/project/update.js";
 import jwtAuthentication from "../middlewares/jwt-authentication.js";
+import createProjectValidator from "../validators/create-task-validator.js";
 
 const projectRoutes = Router();
-projectRoutes.post("/", jwtAuthentication, createProjectController.execute);
+projectRoutes.post(
+  "/",
+  jwtAuthentication,
+  createProjectValidator,
+  createProjectController.execute
+);
 projectRoutes.put(
   "/:project_id",
   jwtAuthentication,
